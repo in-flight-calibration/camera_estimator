@@ -3,12 +3,16 @@
 <package format="3">
     <name>camera_estimator</name>
     <version>0.0.0</version>
-    <description>camera_estimator package for the IFC workspace.</description>
+    <description>Estimates the camera mount rotation and intrinsics from feature flow, telemetry and terrain.</description>
     <maintainer email="wggajda@gmail.com">Wojciech Gajda</maintainer>
     <license>TODO</license>
 
     <buildtool_depend>ament_cmake</buildtool_depend>
+
+    <depend>eigen</depend>
     <depend>ifc_msgs</depend>
+    <depend>ifc_tools</depend>
+    <depend>libceres-dev</depend>
     <depend>rclcpp</depend>
 
     <export>
