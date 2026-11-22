@@ -8,10 +8,16 @@ int main(int argc, char* argv[])
 
     auto node = std::make_shared<camera_estimator::CameraEstimator>();
 
-    rclcpp::executors::SingleThreadedExecutor executor;
+    rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
-    executor.spin();
 
+    for (const auto& child : node->children())
+    {
+        executor.add_node(child);
+    }
+
+    executor.spin();
+    
     rclcpp::shutdown();
     return 0;
 }
